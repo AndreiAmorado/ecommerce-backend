@@ -4,8 +4,7 @@ const userController = require('../controller/user')
 const router = express.Router();
 const auth = require('../auth');
 
-// destructure the auth file:
-// here we use the verify and verifyAdmin as auth middlewares.
+// destructured auth file:
 const {verify, verifyAdmin} = auth;
 
 
@@ -14,13 +13,13 @@ router.post("/register",(req,res)=>{
 	userController.registerUser(req.body).then(resultFromController=> res.send(resultFromController))
 })
 
-// Here we have the streamlined the login routes by directly invoking the "loginUser" function consiquently, the req.body will now be incorporated into the controller function.
+//login route
 router.post("/login", userController.loginUser);
 
 // Set admin route
  router.put('/update-admin', verify, verifyAdmin, userController.updateAdmin);
 
-// Get user details
+// get user details route
  router.get("/details",verify, userController.getUserDetails);
 
  router.post("/checkEmail", (req, res) => {
