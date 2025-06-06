@@ -20,10 +20,6 @@ module.exports.createAccessToken = (user) =>{
 
 // Token Verification
 
-/*
-	Analogy
-		Receive the gift and open the lock using the secret key to verify if the sender(client who sends the request) is legitimate and if the gift was not tampered
-*/
 
 module.exports.verify = (req,res, next) =>{
 	console.log(req.headers.authorization);
